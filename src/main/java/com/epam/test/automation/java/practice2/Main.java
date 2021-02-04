@@ -6,9 +6,14 @@ public class Main {
     {
 
     }
+    private static final String ACTION_1 = "value should be positive";
 
     public static int task1(int value)
     {
+        if (value <= 0)
+        {
+            throw new IllegalArgumentException(ACTION_1);
+        }
         int sum = 0;
         while (value > 0)
         {
@@ -20,6 +25,10 @@ public class Main {
 
     public static int task2(int value)
     {
+        if (value <= 0)
+        {
+            throw new IllegalArgumentException(ACTION_1);
+        }
         int count = 0;
         while (value > 0)
         {
@@ -31,6 +40,10 @@ public class Main {
 
     public static int task3(int value)
     {
+        if (value <= 0)
+        {
+            throw new IllegalArgumentException(ACTION_1);
+        }
         int f0 = 0;
         int f1 = 1;
         int f;
