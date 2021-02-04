@@ -9,16 +9,10 @@ public class Main {
 
     public static int task1(int value)
     {
-        int b;
         int sum = 0;
-
-        while (value != 0)
+        while (value > 0)
         {
-            b = value % 10;
-            if (b % 2 != 0)
-            {
-                sum = sum + b;
-            }
+            sum += value % 10 * (value % 2);
             value = value / 10;
         }
         return sum;
@@ -27,30 +21,25 @@ public class Main {
     public static int task2(int value)
     {
         int count = 0;
-        for (int i = 0; i < 8; i++)
+        while (value > 0)
         {
-            if ((value >> i) % 2 == 1)
-                count++;
+            count += value % 2;
+            value /= 2;
         }
         return count;
     }
 
     public static int task3(int value)
     {
-        int b = value - 1;
-        if (b <= 0)
-            return 0;
-
-        int[] fib = new int[b + 1];
-        fib[0] = 0; fib[1] = 1;
-
-        int sum = fib[0] + fib[1];
-
-        for (int i = 2; i <= b; i++)
+        int f0 = 0;
+        int f1 = 1;
+        int f;
+        for (int step = 2; step < value + 2; step++)
         {
-            fib[i] = fib[i - 1] + fib[i - 2];
-            sum += fib[i];
+            f = f0 + f1;
+            f0 = f1;
+            f1 = f;
         }
-        return sum;
+        return f1 -1;
     }
 }
